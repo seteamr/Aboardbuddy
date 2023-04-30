@@ -1,0 +1,62 @@
+<section>
+    <div class="container">
+        <div class="row">
+            <h2>POST an Ad</h2>
+        </div>
+        <div class="row">
+            <form [formGroup]="addForm" >
+                <div class="container">
+                    <div class="row">
+                        
+                        <div class="col-md-9">
+                            <div class="row">
+                                <div class="col-md-12" *ngIf="updateError || updateSuccess">
+                                    <p class="text-danger"  *ngIf="updateError">{{updateError}}</p>
+                                    <p class="text-success"  *ngIf="updateSuccess">{{updateSuccess}}</p>
+                                </div>
+                                <div class="col-md-12 col-sm-12">
+                                    <select class="form-select" formControlName="property_type" [ngClass]="((submited || getControls?.property_type?.touched) && getControls?.property_type?.errors)?'invalid-input':''" >
+                                        <option value=""> Property Type </option>
+                                        <option [value]="item?.id" *ngFor="let item of propertyTypes;"> {{item?.value}} </option>
+                                    </select>
+                                </div>
+                                <div class="col-md-12 col-sm-12">
+                                    <select class="form-select" formControlName="select_option" [ngClass]="((submited || getControls?.select_option?.touched) && getControls?.select_option?.errors)?'invalid-input':''">
+                                        <option value=""> Select an Option </option>
+                                        <option [value]="item?.id" *ngFor="let item of dealTypes;"> {{item?.value}} </option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12">
+                                    <textarea class="form-control" cols="30" rows="5" placeholder="Description of property" formControlName="description" [ngClass]="((submited || getControls?.description?.touched) && getControls?.description?.errors)?'invalid-input':''"></textarea>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12">
+                                    <input type="file" class="form-control" name="files[]" placeholder="Property Image"  (change)="onChangeImage($event)" formControlName="image" [ngClass]="((submited || getControls?.image?.touched) && !propertyImages?.length)?'invalid-input':''">
+                                </div>
+                                <div class="col-md-2 col-sm-2" *ngFor="let img of propertyImages; let i index">
+                                    <img [src]="img?.url?img?.url:propertyImgUrl" alt="" class="responsive-img">
+                                    <button class="remove-img-button" *ngIf="propertyImages?.length>1" (click)="removeImg(i)">Remove</button>
+                                </div>
+                                
+                            </div>
+                            <div class="row"></div>
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12">
+                                    <button  class="btn btn-primary post-button" *ngIf="!isLoading" (click)="onSubmit()">POST AD</button>
+                                    <button class="btn btn-primary post-button" *ngIf="isLoading">POSTING AD...</button>
+                                </div>
+                            </div>
+                         </div>
+                         <!-- <div class="col-md-3">
+                            
+                        </div> -->
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

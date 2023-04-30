@@ -1,0 +1,41 @@
+<section>
+    <div class="container">
+        <div class="row pt-lg-5">
+            <div class="col-md-12">
+                <h1>My Ads</h1>
+                <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Image</th>
+                        <th scope="col">Property Type</th>
+                        <th scope="col">Deal Type</th>
+                        <th scope="col">Description</th>
+                        
+                        <!-- <th scope="col">No of Views</th> -->
+                        <th scope="col">Posted on</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngIf="!trips?.length">
+                            <td colspan="7">No ad posted by you.</td>
+                        </tr>
+                      <tr *ngFor="let item of trips; let i =index">
+                        <th scope="row">{{i+1}}</th>
+                        <td> 
+                          <img class="ad-image" [src]="image?.image" *ngFor="let image of item?.images">
+                         </td>
+                        <td>{{item?.property_type | titlecase}}</td>
+                        <td>{{item?.select_option | titlecase}}</td>
+                        <td>{{item?.description?item?.description:'-'}}</td>
+                        <!-- <td>{{item?.no_of_views?item?.no_of_views:'-'}}</td> -->
+                        <td>{{(item?.entry_date) | date:'dd-MM-Y'}}</td>
+                      </tr>                     
+                    </tbody>
+                  </table>
+                  
+            </div>
+            
+        </div>
+    </div>
+</section>

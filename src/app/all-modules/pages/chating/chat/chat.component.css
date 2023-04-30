@@ -1,0 +1,141 @@
+section {
+    background: linear-gradient(#0A4D68, #05BFDB);
+}
+
+
+/* Chat container */
+
+.chat-container {
+    display: flex;
+    flex-direction: row;
+    height: 600px;
+    border: 2px solid black;
+    overflow: hidden;
+}
+
+
+/* Contact list */
+
+.contact-list {
+    width: 100%;
+    background-color: #00000078;
+    border-radius: 10px;
+    padding: 10px;
+    overflow-y: auto;
+}
+
+
+/* Contact */
+
+.contact {
+    cursor: pointer;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #E2E2E2;
+}
+
+.contact:hover {
+    background-color: #D1D1D1;
+}
+
+.contact.active {
+    background-color: #DCF8C6;
+}
+
+
+/* Chat messages */
+
+.chat-messages {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    padding: 10px;
+}
+
+
+/* Chat message */
+
+.chat-message {
+    background-color: #F7F7F7;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 10px;
+    max-width: 80%;
+}
+
+
+/* User message */
+
+.user-message {
+    background-color: #DCF8C6;
+    align-self: flex-end;
+}
+
+
+/* Bot message */
+
+.bot-message {
+    background-color: #E2E2E2;
+    align-self: flex-start;
+}
+
+
+/* Input field */
+
+.input-field {
+    margin-top: 10px;
+}
+
+.btn {
+    margin-left: 1px;
+}
+
+.message-contanier {
+    max-height: 350px;
+    overflow: auto;
+}
+
+.message-input {
+    margin-top: 10px;
+    background-color: #fff;
+    border: none;
+    border-radius: 30px;
+    height: 45px;
+}
+
+.message-input::-moz-placeholder {
+    text-align: center;
+    color: #000;
+    opacity: 5;
+}
+
+.chat-request {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #00000078;
+    border-radius: 10px;
+}
+
+.chat-request h2 {
+    color: #fff;
+}
+
+h2 {
+    color: #fff;
+}
+
+.message-contanier {
+    background-color: #00000081;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+#send {
+    margin-top: 10px;
+    border: none;
+    width: 80px;
+    border-radius: 20px;
+    background-color: #0A4D68;
+}

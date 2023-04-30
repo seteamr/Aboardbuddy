@@ -1,0 +1,87 @@
+<section>
+    <div class="container">
+        <div class="row">
+            <h2>POST A TRIP</h2>
+        </div>
+        <div class="row">
+            <form [formGroup]="postTripForm" (ngSubmit)="postTrip()">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12" *ngIf="updateError || updateSuccess">
+                            <p class="text-danger"  *ngIf="updateError">{{updateError}}</p>
+                            <p class="text-success"  *ngIf="updateSuccess">{{updateSuccess}}</p>
+                        </div>
+
+                        <!-- <div class="col-md-6 col-sm-6">
+                            <select class="form-select" formControlName="trip_from" [ngClass]="((submited || getControls?.trip_from?.touched) && getControls?.trip_from?.errors)?'invalid-input':''" >
+                                <option value=""> Select From City </option>
+                                <option [value]="city?.city_id" *ngFor="let city of cities;"> {{city?.name}} </option>
+                             </select>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <select class="form-select" formControlName="trip_to" [ngClass]="((submited || getControls?.trip_to?.touched) && getControls?.trip_to?.errors)?'invalid-input':''">
+                                <option value=""> Select To City </option>
+                                <option [value]="city?.city_id" *ngFor="let city of cities;"> {{city?.name}} </option>
+                             </select>
+                        </div> -->
+                       
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12">
+                            <input type="text" class="form-control" placeholder="Location" formControlName="location" [ngClass]="((submited || getControls?.location?.touched) && getControls?.location?.errors)?'invalid-input':''">
+                        </div>
+
+                        <div class="col-md-6 col-sm-6">
+                            <select class="form-select" formControlName="smoking_habit" [ngClass]="((submited || getControls?.smoking_habit?.touched) && getControls?.smoking_habit?.errors)?'invalid-input':''">
+                                <option value="">Smoking Habit?</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <select class="form-select" formControlName="consumed_alcohol" [ngClass]="((submited || getControls?.consumed_alcohol?.touched) && getControls?.consumed_alcohol?.errors)?'invalid-input':''">
+                                <option value="">Consumed Alcohol? </option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                                <option value="Small">Small</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <select class="form-select" formControlName="driving_experience" [ngClass]="((submited || getControls?.driving_experience?.touched) && getControls?.driving_experience?.errors)?'invalid-input':''">
+                                <option value="">How many years of driving experience</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <select class="form-select" formControlName="no_of_passengers" [ngClass]="((submited || getControls?.no_of_passengers?.touched) && getControls?.no_of_passengers?.errors)?'invalid-input':''">
+                                <option value="">No  of passengers required</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <!-- <option value="8">8</option> -->
+                                <!-- <option value="9">9</option> -->
+                            </select>
+                        </div>
+                        <div class="col-md-12 col-sm-12">
+                            <textarea class="form-control" rows="1" placeholder="Car Description" formControlName="car_description" [ngClass]="((submited || getControls?.car_description?.touched) && getControls?.car_description?.errors)?'invalid-input':''"></textarea>
+                        </div>
+                        <div class="col-md-12 col-sm-12">
+                            <textarea class="form-control" cols="30" rows="5" placeholder="Leave a special notes" formControlName="leave_notes" [ngClass]="((submited || getControls?.leave_notes?.touched) && getControls?.leave_notes?.errors)?'invalid-input':''"></textarea>
+                        </div>
+                        <div class="col-md-12 col-sm-12">
+                            <button type="submit" class="btn btn-primary full-width">POST PARTY CARPOOL</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

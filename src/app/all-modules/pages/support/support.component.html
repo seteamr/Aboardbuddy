@@ -1,0 +1,38 @@
+<section class="LoginPage supportpage" style="background:url(assets/image/bgimage.jpeg);">
+    <div class="container">
+      <div class="row">
+          <div class="col-md-6">
+              <div class="contactphoto">
+                  <img src="assets/image/ct1.jpeg" alt="">
+              </div>
+          </div>
+          <div class="col-md-6">
+             <div class="contactpageform">
+                 <form   [formGroup]="contactUsForms" class="form register" (ngSubmit)="onSubmit()">
+                    <p class="text-success text-align-left" *ngIf="successMsg" >{{successMsg}}</p>
+                    <p class="text-danger text-align-left" *ngIf="errorMsg" >{{errorMsg}}</p>
+                     <div class="form__field mb-2">
+                       <input  type="text" name="firstname" class="form__input" placeholder="Name" required formControlName="name" [ngClass]="((submited || getControls?.name?.touched) && getControls?.name?.errors)?'invalid-input':''">
+                     </div>
+               
+                     <div class="form__field mb-2">
+                       <input  type="text" name="lastname" class="form__input" placeholder="Email" required formControlName="email" [ngClass]="((submited || getControls?.email?.touched) && getControls?.email?.errors)?'invalid-input':''">
+                     </div>
+                     <div class="form__field mb-2">
+                      <input  type="text" name="lastname" class="form__input" placeholder="Phone" required formControlName="phone_no" [ngClass]="((submited || getControls?.phone_no?.touched) && getControls?.phone_no?.errors)?'invalid-input':''">
+                     </div>
+                     
+                     <div class="form__field mb-2">
+                         <textarea rows="4" cols="50" placeholder="Write Something" formControlName="message" [ngClass]="((submited || getControls?.message?.touched) && getControls?.message?.errors)?'invalid-input':''"></textarea>
+                     </div>
+                    
+                     <div class="form__field col-md-12">
+                       <input type="submit" value="Submit">
+                     </div>
+               
+                   </form>
+             </div>
+          </div>
+      </div>
+    </div>
+ </section>

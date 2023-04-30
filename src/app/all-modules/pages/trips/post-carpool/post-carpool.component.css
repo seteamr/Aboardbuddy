@@ -1,0 +1,23 @@
+h2 {
+    text-align: center;
+    padding-top: 30px;
+}
+
+form input,
+select,
+.form-control,
+label {
+    margin: 10px;
+}
+
+.btn {
+    width: 200px;
+    margin: 20px;
+    margin-top: 10px;
+    margin-bottom: 50px;
+    background: #4E6E81;
+    border: none;
+}
+.full-width{
+    width: 100%;
+}

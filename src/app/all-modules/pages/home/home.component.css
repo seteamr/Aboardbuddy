@@ -1,0 +1,91 @@
+body {
+    background: #e8cbc0;
+    background: -webkit-linear-gradient(to right, #e8cbc0, #636fa4);
+    background: linear-gradient(to right, #e8cbc0, #636fa4);
+    min-height: 100vh;
+}
+
+.social-link {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    border-radius: 50%;
+    transition: all 0.3s;
+    font-size: 0.9rem;
+}
+
+.social-link:hover,
+.social-link:focus {
+    background: #ddd;
+    text-decoration: none;
+    color: #555;
+}
+
+.btn {
+    background: #636fa4;
+    border: none;
+    border-radius: 0%;
+}
+
+.addcontent h5 {
+    border-radius: 4em;
+    position: absolute;
+    top: 0;
+    background: #ebebeb;
+    padding: 0.3rem 1rem;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #060606 !important;
+    font-weight: 600;
+}
+.addPostBoxShow {
+    padding-bottom: 5rem;
+    /* width:24.33%; */
+    width:100%;
+}
+.addPhoto:after {
+    content: '';
+    background: #000000a1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+.addPhoto {
+    padding: 1.3rem;
+    background-size: cover !important;
+    height: 35vh;
+    
+    background-position: bottom !important;
+    position: relative;
+}
+.addPostBoxShow a {
+    text-decoration: none;
+    color: #fff;
+}
+.addcontent {
+    position: relative;
+    z-index: 11;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+}
+.postmainBoxNM {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap:wrap;
+
+}
+.row{
+    width: 100% !important;
+}
+
+.nml-110{
+  margin-left: -111px;
+}

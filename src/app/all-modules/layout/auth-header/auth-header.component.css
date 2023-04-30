@@ -1,0 +1,45 @@
+header.header_area {
+    background: #262626;
+    color: #fff;
+}
+  .navigation * {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  .navigation-portrait {
+    height: 48px;
+  }
+  
+  .navigation-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 19998;
+  }
+  ul.nav-menu.align-to-center {
+    justify-content: center;
+    display: flex;
+    margin: 0;
+}
+nav#navigation1 {
+  display: flex;
+  justify-content: space-between;
+}
+a.nav-brand img {
+  width: 87px;
+  padding: 9px;
+}
+ul.nav-menu-01 {
+  margin: 0;
+}
+
+ul.nav-menu-01 li a {
+  height: 80px;
+  padding: 31px 0px;
+  display: inline-block;
+  text-decoration: none;
+  font-size: 14px;
+  color: #fff;
+  transition: color 0.3s, background 0.3s;
+}

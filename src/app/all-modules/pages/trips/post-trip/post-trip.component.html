@@ -1,0 +1,81 @@
+<section>
+    <div class="container">
+        <div class="row">
+            <h2>POST A TRIP</h2>
+        </div>
+        <div class="row">
+            <form [formGroup]="postTripForm" (ngSubmit)="postTrip()">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12" *ngIf="updateError || updateSuccess">
+                            <p class="text-danger"  *ngIf="updateError">{{updateError}}</p>
+                            <p class="text-success"  *ngIf="updateSuccess">{{updateSuccess}}</p>
+                        </div>
+
+                        <div class="col-md-6 col-sm-6">
+                            <select class="form-select" formControlName="trip_from" [ngClass]="((submited || getControls?.trip_from?.touched) && getControls?.trip_from?.errors)?'invalid-input':''" >
+                                <option value=""> Select From City </option>
+                                <option [value]="city?.city_id" *ngFor="let city of cities;"> {{city?.name}} </option>
+                             </select>
+                            <!-- <input type="text" class="form-control" placeholder="From" formControlName="trip_from" [ngClass]="((submited || getControls?.trip_from?.touched) && getControls?.trip_from?.errors)?'invalid-input':''"> -->
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <select class="form-select" formControlName="trip_to" [ngClass]="((submited || getControls?.trip_to?.touched) && getControls?.trip_to?.errors)?'invalid-input':''">
+                                <option value=""> Select To City </option>
+                                <option [value]="city?.city_id" *ngFor="let city of cities;"> {{city?.name}} </option>
+                             </select>
+                            <!-- <input type="text" class="form-control" placeholder="To" formControlName="trip_to" [ngClass]="((submited || getControls?.trip_to?.touched) && getControls?.trip_to?.errors)?'invalid-input':''"> -->
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6">
+                            <!-- <label for="" class="form-label">Date</label> -->
+                            <input type="date" class="form-control" placeholder="Date" formControlName="trip_date" [ngClass]="((submited || getControls?.trip_date?.touched) && getControls?.trip_date?.errors)?'invalid-input':''">
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <!-- <label for="" class="form-label">Time</label> -->
+                            <input type="time" class="form-control" placeholder="Time" formControlName="trip_time" [ngClass]="((submited || getControls?.trip_time?.touched) && getControls?.trip_time?.errors)?'invalid-input':''">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6">
+                            <input type="text" class="form-control" placeholder="No of passengers required" formControlName="no_of_passanger" [ngClass]="((submited || getControls?.no_of_passanger?.touched) && getControls?.no_of_passanger?.errors)?'invalid-input':''">
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <select class="form-select" formControlName="smoker" [ngClass]="((submited || getControls?.smoker?.touched) && getControls?.smoker?.errors)?'invalid-input':''">
+                                <option value="">Smoker/Non-Smoker </option>
+                                <option value="Smoker">Smoker</option>
+                                <option value="Non-Smoker">Non-Smoker</option>
+                            </select>
+                            <!-- <input type="text" class="form-control" placeholder="Smoker/non-smoker" formControlName="smoker" [ngClass]="((submited || getControls?.smoker?.touched) && getControls?.smoker?.errors)?'invalid-input':''"> -->
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6">
+                            <select class="form-select" formControlName="licend" [ngClass]="((submited || getControls?.licend?.touched) && getControls?.licend?.errors)?'invalid-input':''">
+                                <option value="">Years Licensed </option>
+                                <option value="1 year">1 year</option>
+                                <option value="2 year">2 years</option>
+                                <option value="3 year">3 years</option>
+                                <option value="4 year">4 years</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <textarea class="form-control" rows="1" placeholder="Car Description" formControlName="description" [ngClass]="((submited || getControls?.description?.touched) && getControls?.description?.errors)?'invalid-input':''"></textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12">
+                            <textarea class="form-control" cols="30" rows="5" placeholder="Leave a notes" formControlName="notes" [ngClass]="((submited || getControls?.notes?.touched) && getControls?.notes?.errors)?'invalid-input':''"></textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12">
+                            <button type="submit" class="btn btn-primary">POST</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

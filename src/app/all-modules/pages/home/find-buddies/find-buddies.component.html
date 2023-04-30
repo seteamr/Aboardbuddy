@@ -1,0 +1,35 @@
+<section>
+    <div class="container pt-lg-5">
+        <form action="" [formGroup]="buddieFilterform">
+        <div class="row">
+            <div class="col-md-4 col-sm-4 pt-lg-5">
+            <select class="form-select" formControlName="country_id" (change)="onChangeCountry()" [ngClass]="((submited || getControls?.country_id?.touched) && getControls?.country_id?.errors)?'invalid-input':''">
+                <option value=""> Select Country </option>
+                <option [value]="country?.country_id" *ngFor="let country of countries;"> {{country?.name}} </option>
+            </select>
+            
+            </div>
+            <div class="col-md-4 col-sm-4 pt-lg-5">
+                <select class="form-select" formControlName="city_id" (change)="onChangeCity()" [ngClass]="((submited || getControls?.city_id?.touched) && getControls?.city_id?.errors)?'invalid-input':''">
+                    <option value="">Select City </option>
+                    <option [value]="city?.city_id" *ngFor="let city of cities;"> {{city?.name}} </option>
+                 </select>
+            </div>
+            <div class="col-md-4 col-sm-4 pt-lg-5">
+                <select class="form-control" formControlName="university_id" [ngClass]="((submited || getControls?.university_id?.touched) && getControls?.university_id?.errors)?'invalid-input':''">
+                    <option value=""> University </option>
+                    <option [value]="univercity?.university_id" *ngFor="let univercity of universities;"> {{univercity?.name}} </option>
+                 </select>
+            </div>
+        </div>
+       </form>
+
+        <div class="row pt-lg-5">
+            <div class="col-md-12 col-sm-12 text-center pt-lg-5">
+                <a (click)="onClickFindBuddies()">
+                    <button class="btn btn-primary"> Find Friends at your Destination </button>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>

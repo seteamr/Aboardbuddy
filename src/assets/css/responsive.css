@@ -1,0 +1,138 @@
+/* MObile CSSFOR SIDEBAR */
+@media only screen and (max-width: 767px){
+  .about-content-mainbox{
+    margin-top:1rem;
+  }
+  section.LoginPage.supportpage {
+    height: 100vh;
+    padding: 1.2rem;
+}
+    body div.LoginPage{
+        height: 100% !important;
+        overflow: hidden;
+        padding: 4rem 0 !important;
+        position: relative;
+    }
+    body footer{
+        position:relative !important;
+    }
+    .nav-toggle{
+        display:block !important;
+      }
+      .nav-logo > img {
+        height: 36px;
+        margin: 6px auto 6px 15px;
+        padding: 0;
+      }
+      .nav-menus-wrapper {
+        width: 320px;
+        height: 100%;
+        top: 0;
+        left: -400px;
+        position: fixed;
+        background-color: #fff;
+        z-index: 20000;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        transition-duration: 0.2s;
+        transition-timing-function: ease;
+      }
+      .navigation.navigation-portrait .nav-menus-wrapper {
+        left: 0; 
+      }
+      .navigation-portrait .nav-menus-wrapper ul li a{
+        color:#000;
+      }
+      ul.nav-menu-01{
+        margin: 0;
+        position: relative;
+        right: 51%;
+    }
+}
+
+
+/* Desktop to mobile Media:- */
+@media only screen and (max-width: 1366px) {
+ 
+}
+
+/* ----------- iPhone 5, 5S, 5C and 5SE ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) {
+
+
+
+
+}
+
+
+/* For Ipad Media:- */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .LoginPage{
+        height: 88vh !important;
+    }
+
+}
+
+/* For Ipad-Pro Media:- */
+@media only screen and (min-width: 992px) and (max-width: 1024px) {
+    .LoginPage{
+        height: 92vh !important;
+    }
+
+
+
+}
+
+/* Screen Resolution MacBook Pro Laptop 1440x990 */
+@media only screen and (min-width: 1367px) and (max-width: 1649px) {
+
+
+
+
+}
+
+
+@media only screen and (max-width: 1024px) {
+
+
+
+
+}
+
+/* Small Desktop Screen Resolution 1366x768 */
+@media only screen and (max-width: 1366px) {
+
+}
+
+
+
+@media (min-device-width: 800px) and (max-device-width: 1280px) and (orientation: landscape) {
+
+}
+@media (min-device-width: 1024px) and (max-device-width: 1920px) {
+   
+}
+@media screen and (max-width: 1440px){
+   
+}
+@media screen and (max-width: 1366px){
+   
+}
+@media (min-device-width: 600px) and (max-device-width: 1200px) {
+   
+}
+
+
+@media screen and (max-width: 1440px){
+   
+}
+@media screen and (min-width: 1800px){
+  
+}
+
+@media screen and (max-width: 1200px){
+   
+}
+@media screen and (min-width: 1920px){
+    
+}

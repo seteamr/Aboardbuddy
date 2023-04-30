@@ -1,0 +1,88 @@
+<section style="background:url(assets/image/bgimage.jpeg);" class="profileNAV">
+    <div class="container">
+        <div class="row">
+           <div class="col-md-12">
+              <div class="profile-inner-box">
+                 <form  [formGroup]="profileForm" (ngSubmit)="updateProfile()">
+                    <div class="row">
+                       
+                       <div class="col-md-3">
+                        <div class="avatar-upload">
+                            <div class="avatar-edit">
+                                <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" (change)="onChangeImage($event)" />
+                                <label for="imageUpload"></label>
+                            </div>
+                            <div class="avatar-preview">
+                                <div id="imagePreview" [ngStyle]="{background: 'url(' + profileImgUrl + ')'}">
+                                </div>
+                            </div>
+                        </div>
+                       </div>
+                       
+                       <div class="col-md-9">
+
+                        <div class="row">
+                           <div class="col-md-12" *ngIf="updateError || updateSuccess">
+                              <p class="text-danger"  *ngIf="updateError">{{updateError}}</p>
+                              <p class="text-success"  *ngIf="updateSuccess">{{updateSuccess}}</p>
+                             </div>
+                            <h3> Information </h3>
+                         <div class="form-group col-md-6 mb-3">
+                           <label> First Name </label>
+                           <input type="" class="form-control" for="" name="" placeholder="" formControlName="first_name" [ngClass]="((submited || getControls?.first_name?.touched) && getControls?.first_name?.errors)?'invalid-input':''">
+                         </div>
+                         <div class="form-group col-md-6 mb-3">
+                            <label> Last Name </label>
+                            <input type="" class="form-control" for="" name="" placeholder="" formControlName="last_name" [ngClass]="((submited || getControls?.last_name?.touched) && getControls?.last_name?.errors)?'invalid-input':''">
+                          </div>
+                         
+                          <div class="form-group col-md-6 mb-3">
+                            <label> Email </label>
+                            <input type="email" class="form-control" for="" name="" placeholder="" formControlName="email" [ngClass]="((submited || getControls?.email?.touched) && getControls?.email?.errors)?'invalid-input':''">
+                          </div>
+                          <div class="form-group col-md-6 mb-3">
+                            <label> Phone Number </label>
+                            <input type="text" class="form-control" for="" name="" placeholder="" formControlName="phone" [ngClass]="((submited || getControls?.phone?.touched) && getControls?.phone?.errors)?'invalid-input':''">
+                          </div>
+                          
+
+                         
+
+                       
+                        <div class="form-group col-md-6 mb-3">
+                           <label>Country</label>
+                           <select class="form-control" formControlName="country_id" (change)="onChangeCountry()">
+                              <option value=""> Select Country </option>
+                              <option [value]="country?.country_id" *ngFor="let country of countries;"> {{country?.name}} </option>
+                          </select>
+                       </div>
+                        <div class="form-group col-md-6 mb-3">
+                           <label>City</label>
+                           <select class="form-control" formControlName="city_id"  >
+                              <option value=""> Select City </option>
+                              <option [value]="city?.city_id" *ngFor="let city of cities;"> {{city?.name}} </option>
+                           </select>
+                        </div>
+                        <div class="form-group col-md-12 mb-3">
+                            <label>How many years you benn residence of that city?</label>
+                            <input  type="text" name="how_many" class="form-control" placeholder="How many years you benn residence of that city?" required  formControlName="how_many" [ngClass]="((submited || getControls?.how_many?.touched) && getControls?.how_many?.errors)?'invalid-input':''">
+                          </div>
+                        
+
+                       
+                        <!-- <div class="form-group col-md-12">
+                            <label> Bio</label>
+                            <textarea class="form-control" formControlName="bio" [ngClass]="((submited || getControls?.bio?.touched) && getControls?.bio?.errors)?'invalid-input':''"></textarea>
+                        </div> -->
+                        <div class="col-md-12">
+                           <button type="submit" value="Submit" class="full-width"> Post Add </button>
+                        </div>
+                        </div>
+                       </div>
+                    </div>
+                 </form>
+              </div>
+           </div>
+        </div>
+    </div>
+</section>

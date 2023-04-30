@@ -1,0 +1,58 @@
+<section class="pt-3">
+  <div class="container">
+     <div class="row">
+     <div class="col-md-12 col-lg-7 m-auto">
+     <div class="row pt-lg-5">
+
+          <div class="col-md-6 col-sm-6">
+            <div class="profilepicnm">
+                    <img [src]="image?.image?image?.image:defaultProfilePic" alt="" *ngFor="let image of adDetails?.images" class="ad-image">
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-6">
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table">
+                        <tr>
+                            <th>Property Type:</th>
+                            <td> {{(adDetails?.property_type) | titlecase}}</td>
+                        </tr>
+                        <tr>
+                            <th>Ad Type:</th>
+                            <td>{{adDetails?.select_option}}</td>
+                        </tr>
+                        <tr>
+                            <th>Description:</th>
+                            <td>{{adDetails?.description}}</td>
+                        </tr>
+                        <tr>
+                            <th>Posted By:</th>
+                            <td>{{adDetails?.added_by |titlecase}}</td>
+                        </tr>
+                        <tr>
+                          <th>Posted On:</th>
+                          <td>{{adDetails?.entry_date}}</td>
+                      </tr>
+                    </table>
+                </div>
+                <div class="col-md-6">
+                    <button class="btn btn-primary" [routerLink]="['/home/buddies/detail', adDetails?.student_id]">View Seller Profile</button>
+                </div>
+                <div class="col-md-6">
+                  <button class="btn btn-danger"  *ngIf="(!spamloading && (!adDetails?.is_spam || adDetails?.is_spam==0))" (click)="reportAdAsSpam()">Report as Spam</button>
+                  <button class="btn btn-danger"  *ngIf="spamloading">Reporting...</button>
+                  <button class="btn btn-danger"  *ngIf="(!spamloading && (adDetails?.is_spam &&  adDetails?.is_spam !=0))">Reported as Spam</button>
+              </div>
+            </div>
+          </div>
+      </div>
+   </div>
+   </div>
+      <!-- <div class="row pt-lg-5">
+        <div class="col-md-6"></div>
+          <div class="col-md-6 col-sm-6 text-center">
+              
+          </div>
+      </div> -->
+  </div>
+</section>

@@ -1,0 +1,179 @@
+<section id="section" style="margin-top: 50px;">
+    <div class="container">
+        <div class="mainRow row">
+            <div class="col col-md-4 col-sm-4">
+                <div class="row justify-content-center">
+
+                    <img [src]="userDetails?.profile_pic?userDetails?.profile_pic:defaultProfilePic"
+                        alt="">
+
+                </div>
+                <div class="button row justify-content-center">
+
+                    <button class="btn btn-primary" (click)="chat()" *ngIf="userDetails?.is_connect==3">Chat Request</button>
+                    <button class="btn btn-primary" (click)="chat()" *ngIf="userDetails?.is_connect==1">Let's Chat</button>
+                    <button class="btn btn-primary" *ngIf="userDetails?.is_connect==0">Chat Request Pending</button>
+                    <button class="btn btn-primary" *ngIf="userDetails?.is_connect==2">Chat Request Rejected</button>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-8 col-sm-8">
+                <table>
+                    <tr>
+                        <h2>{{((userDetails?.first_name)?(userDetails?.first_name+' '+userDetails?.last_name):(userDetails?.username)) | titlecase}}</h2>
+                    </tr>
+                    <tr  *ngIf="!isSeller">
+                        <p><span style="font-weight: bolder;font-size: 15px;">Bio:</span>{{userDetails?.bio}} </p>
+                    </tr>
+                </table>
+                <table id="table2">
+                    <tr  *ngIf="!isSeller">
+                        <th>Age:</th>
+                        <td>{{userDetails?.age}}</td>
+                        <th>Gender:</th>
+                        <td>{{userDetails?.gender}}</td>
+                    </tr>
+                    <tr *ngIf="!isSeller">
+                        <th>University arriving:</th>
+                        <td>{{userDetails?.university_id}} </td>
+                        <th>Education Background:</th>
+                        <td>{{userDetails?.Education_Level}}</td>
+                    </tr>
+
+                    <tr *ngIf="!isSeller">
+                        <th>Hobbies:</th>
+                        <td>{{userDetails?.Hobbies}}</td>
+                        <th>Food Preferences:</th>
+                        <td>{{userDetails?.Food_Type}}</td>
+                    </tr>
+
+
+                    <tr *ngIf="!isSeller">
+                        <th>Accomodation Preferences:</th>
+                        <td>{{userDetails?.Room_Sharing}}</td>
+                        <th>Budget:</th>
+                        <td>{{userDetails?.Budget}}</td>
+
+                    </tr>
+
+                    <tr *ngIf="!isSeller">
+                        <th>Linkedin Profile:</th>
+                        <td>
+                            <a [href]="userDetails?.Linkedin" target="_blank" *ngIf="userDetails?.Linkedin">View Profile</a>
+                            <span *ngIf="!userDetails?.Linkedin">-</span>
+                        </td>
+                        <th>Facebook Profile:</th>
+                        <td>
+                            <a [href]="userDetails?.Facebook" target="_blank" *ngIf="userDetails?.Facebook">View Profile</a>
+                            <span *ngIf="!userDetails?.Facebook">-</span>
+                        </td>
+                    </tr>
+                    <tr *ngIf="!isSeller">
+                        <th>Twitter Profile:</th>
+                        <td>
+                            <a [href]="userDetails?.Twitter" target="_blank" *ngIf="userDetails?.Twitter">View Profile</a>
+                            <span *ngIf="!userDetails?.Twitter">-</span>
+                        </td>
+                        <th>Instagram Profile:</th>
+                        <td>
+                            <a [href]="userDetails?.Instagram" target="_blank"  *ngIf="userDetails?.Instagram">View Profile</a>
+                            <span *ngIf="!userDetails?.Instagram">-</span>
+                        </td>
+                    </tr>
+
+                    <tr *ngIf="isSeller">
+                        <th>Email:</th>
+                        <td>{{userDetails?.email}}</td>
+                        <th>Phone:</th>
+                        <td>{{userDetails?.phone}}</td>
+                    </tr>
+
+                    <tr *ngIf="isSeller">
+                        <th>City:</th>
+                        <td>{{userDetails?.city}}</td>
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+<!-- <section>
+    <div class="container">
+        <div class="row pt-lg-5">
+            <div class="col-md-6 col-sm-6">
+                <img [src]="userDetails?.profile_pic?userDetails?.profile_pic:defaultProfilePic" alt="">
+            </div>
+            <div class="col-md-6 col-sm-6">
+                <table>
+                    <tr>
+                        <th>Full Name:</th>
+                        <td> {{((userDetails?.first_name)?(userDetails?.first_name+' '+userDetails?.last_name):(userDetails?.username)) | titlecase}}</td>
+                    </tr>
+                    <tr>
+                        <th>Bio:</th>
+                        <td>{{userDetails?.bio}}</td>
+                    </tr>
+                    <tr>
+                        <th>Age:</th>
+                        <td>{{userDetails?.age}}</td>
+                    </tr>
+                    <tr>
+                        <th>Gender:</th>
+                        <td>{{userDetails?.gender}}</td>
+                    </tr>
+                    <tr>
+                        <th>University arriving:</th>
+                        <td>{{userDetails?.university_id}}</td>
+                    </tr>
+                    <tr>
+                        <th>Education Background:</th>
+                        <td>{{userDetails?.Education_Level}}</td>
+                    </tr>
+                    <tr>
+                        <th>Hobbies:</th>
+                        <td>{{userDetails?.Hobbies}}</td>
+                    </tr>
+                    <tr>
+                        <th>Food Preferences:</th>
+                        <td>{{userDetails?.Food_Type}}</td>
+                    </tr>
+                    <tr>
+                        <th>Accomodation Preferences:</th>
+                        <td>{{userDetails?.Room_Sharing}}</td>
+                    </tr>
+                    <tr>
+                        <th>Linkedin Profile:</th>
+                        <td>{{userDetails?.Linkedin}}</td>
+                    </tr>
+                    <tr>
+                        <th>Facebook Profile:</th>
+                        <td>{{userDetails?.Facebook}}</td>
+                    </tr>
+                    <tr>
+                        <th>Twitter Profile:</th>
+                        <td>{{userDetails?.Twitter}}</td>
+                    </tr>
+                    <tr>
+                        <th>Instagram Profile:</th>
+                        <td>{{userDetails?.Instagram}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="row pt-lg-5">
+            <div class="col-md-12 col-sm-12 text-center">
+                <button class="btn btn-primary" (click)="chat()" *ngIf="userDetails?.is_connect==3">Chat Request</button>
+                <button class="btn btn-primary" (click)="chat()" *ngIf="userDetails?.is_connect==1">Let's Chat</button>
+                <button class="btn btn-primary" *ngIf="userDetails?.is_connect==0">Chat Request Pending</button>
+                <button class="btn btn-primary" *ngIf="userDetails?.is_connect==2">Chat Request Rejected</button>
+            </div>
+        </div>
+    </div>
+</section> -->

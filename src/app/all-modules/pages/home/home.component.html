@@ -1,0 +1,65 @@
+<div class="container">
+    <div class="row pt-lg-5">
+        <div class="col-xl-12 col-sm-12">
+            <h3 class="">Buddies from your Friend List</h3>
+        </div>
+    </div>
+    <div class="row text-center ">
+
+        <div class="col-xl-12 col-sm-12 mb-5" *ngIf="error">
+            <div class="bg-warning rounded shadow-sm py-5 px-4">
+                <h5 class="mb-0">
+                    No Buddies in your friend list
+                </h5>
+                <p>
+                    <button class="btn btn-primary mt-4" routerLink="/home/select-university">Find Buddies</button>
+                </p>
+            </div>
+        </div>
+
+        <!-- Team item -->
+        
+        <div class="col-xl-3 col-sm-3 mb-5" *ngFor="let item of buddies">
+            <div class="bg-warning rounded shadow-sm py-5 px-4">
+                <img [src]="item?.profile_pic?item?.profile_pic:defaultProfileImg" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+                <h5 class="mb-0">
+                    {{((item?.first_name)?(item?.first_name+' '+item?.last_name):(item?.username)) | titlecase}}
+                </h5>
+                <a [routerLink]="['/home/buddies/detail', item?.student_id]">
+                    <button class="btn btn-primary mt-md-4">View profile</button>
+                </a>
+            </div>
+        </div>
+        <!-- End -->       
+    </div>
+    <hr>
+    <div class="col-xl-12 col-sm-12">
+        <h3 class="">Advertise in your city</h3>
+    </div>
+    <div class="postmainBoxNM" >
+        <div class="row">
+            <div class="col-xl-12 col-sm-12 mb-5 text-center" *ngIf="addError">
+                <div class="bg-warning rounded shadow-sm py-5 px-4">
+                    <h5 class="mb-0">
+                        No advertisements at your location
+                    </h5>
+                </div>
+            </div>
+
+            <div class="col-md-3" *ngFor="let item of adsList;">
+             <div class="addPostBoxShow" >
+                <a href="javascript:void(0);" [routerLink]="['/home/buddies/ad-details', item?.post_id]">
+                    <div class="addPhoto"   [ngStyle]="{background: 'url(' + item?.images[0].image + ')'}" style="background: url(assets/image/bgimage.jpeg);">
+                        <div class="addcontent">
+                            <h3>{{item?.property_type}}</h3>
+                            <h5>{{item?.select_option}} </h5>
+                            <p>{{item?.description}} </p>
+                        </div>
+                    </div> 
+                </a>
+              </div>
+            </div>
+        </div>
+		
+    </div>
+</div>

@@ -1,0 +1,77 @@
+<section>
+    <div class="container">
+        <div class="row pt-lg-5">
+            <div class="col-md-8">
+                <h3>Party Carpool Listing</h3>
+            </div>
+            <div class="col-md-4">
+                <input type="text" placeholder="Search party carpools"  class="form-control" (keyup)="onSearch($event)">
+            </div>
+            <hr>
+            <div >
+              <div class="row">
+                <div class="col-md-12">   
+                  <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Location</th>
+                          <th scope="col">Smoking Habit</th>
+                          <th scope="col">Consumed Alcohol</th>
+                          <th scope="col">Driving Experiense</th>
+                          <th scope="col">Required Passangers</th>
+                          <th scope="col">Joined</th>
+                          <th scope="col">Descriptions</th>
+                          <th scope="col">Notes</th>
+                          <th scope="col">Posted By</th>
+                          <th scope="col">Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngIf="!trips?.length">
+                            <td colspan="11">No party carpool available at your location.</td>
+                        </tr>
+                        <ng-container *ngFor="let item of trips; let i =index">
+                        <tr >
+                          <th scope="row">{{i+1}}</th>
+                          <td>{{item?.location | titlecase}}</td>
+                          <td>{{item?.smoking_habit | titlecase}}</td>
+                          <td>{{item?.consumed_alcohol | titlecase}}</td>
+                          <td class="text-center">{{item?.driving_experience}} Years</td>
+                          <td class="text-center">{{item?.no_of_passengers}}</td>
+                          <td class="text-center">
+                          <a *ngIf="item?.student_id !=userId">{{item?.members?.length}}</a>
+                          <a href="javascript:void(0);"  *ngIf="item?.student_id ==userId" (click)="viewJoinedPeople(i)">{{item?.members?.length}}</a>
+                            
+                          </td>
+                          <td>{{item?.car_description?item?.car_description:'-'}}</td>
+                          <td>{{item?.leave_notes?item?.leave_notes:"-"}}</td>
+                          <td>
+                            <a *ngIf="item?.student_id !=userId" [routerLink]="['/home/buddies/detail', item?.student_id]">{{(item?.added_by)| titlecase}}</a>
+                            <a *ngIf="item?.student_id==userId">You</a>
+                          </td>
+                          <td>
+                              <button class="btn btn-primary join-btn" *ngIf="!item?.isJoined && item?.student_id !=userId" (click)="joinCarPool(i, item)">Join</button>
+                              <button class="btn btn-primary join-btn" *ngIf="item?.student_id == userId" (click)="deleteCarPoolPost(i, item)">Delete</button>
+                              <button class="btn btn-primary join-btn" *ngIf="item?.isJoined && item?.student_id !=userId">Joined</button>
+                          </td>
+                        </tr> 
+                        <tr *ngIf="item?.showChild">
+                          <td colspan="11"><strong>Joined people: </strong>
+                            <a [routerLink]="['/home/buddies/detail', subitem?.student_id]"  *ngFor="let subitem of item.members; let i = index ">{{(subitem?.first_name?(subitem?.first_name +' '+ subitem?.last_name):subitem?.username) | titlecase}}, </a>
+                            <span *ngIf="!item?.members?.length">No one joined yet</span>
+                          </td>
+                        </tr>         
+                      </ng-container>           
+                      </tbody>
+                    </table>
+                    
+                </div>
+              </div>
+            </div>
+            
+            
+           
+        </div>
+    </div>
+</section>

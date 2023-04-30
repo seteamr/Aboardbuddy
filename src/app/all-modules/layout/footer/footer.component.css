@@ -1,0 +1,16 @@
+footer p {
+    margin: 0;
+    font-size: 11px;
+}
+footer {
+    position:fixed;
+    bottom:0;
+    border-top: 1px solid #ddd;
+    padding: 11px 7px;
+    margin: 0;
+    background: #ddd;
+    bottom: 0;
+    text-align: center;
+    right: 0;
+    left: 0;
+}

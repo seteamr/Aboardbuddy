@@ -1,0 +1,47 @@
+<section>
+    <div class="container">
+        <div class="row pt-lg-5">
+            <div class="col-md-12">
+                <h1>Trip Listing</h1>
+                <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">From City</th>
+                        <th scope="col">To City</th>
+                        <th scope="col">Date and Time</th>
+                        <th scope="col">Passengers Required</th>
+                        <th scope="col">Smoker/Non-Smoker</th>
+                        <th scope="col">Year Licensed</th>
+                        <th scope="col">Cart Descriptions</th>
+                        <th scope="col">Special Note</th>
+                        <th scope="col">Post By</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngIf="!trips?.length">
+                            <td colspan="10">No ride sharing available in your city.</td>
+                        </tr>
+                      <tr *ngFor="let item of trips; let i =index">
+                        <th scope="row">{{i+1}}</th>
+                        <td>{{item?.trip_from_name | titlecase}}</td>
+                        <td>{{item?.trip_to_name | titlecase}}</td>
+                        <td>{{(item?.trip_date +' ' + item?.trip_time) | date:'dd-MM-Y, hh:MM a'}}</td>
+                        <td class="text-center">{{item?.no_of_passanger}}</td>
+                        <td class="text-center">{{item?.smoker}}</td>
+                        <td>{{item?.licend | titlecase}}</td>
+                        <td>{{item?.description?item?.description:'-'}}</td>
+                        <td>{{item?.notes?item?.notes:"-"}}</td>
+                        <td>
+                          <a *ngIf="item?.student_id !=userId" [routerLink]="['/home/buddies/detail', item?.student_id]">{{(item?.first_name+' '+ item?.last_name)| titlecase}}</a>
+                          <a *ngIf="item?.student_id==userId">You</a>
+                        </td>
+                      </tr>                     
+                    </tbody>
+                  </table>
+                  
+            </div>
+            
+        </div>
+    </div>
+</section>
