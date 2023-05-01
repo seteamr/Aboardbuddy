@@ -10,29 +10,29 @@
           
           <div class="nav-menus-wrapper">
             <ul class="nav-menu align-to-right">
-              <li  *ngIf="userDetails?.isStudent"><a routerLink="/home">Home</a></li>
-              <li  *ngIf="!userDetails?.isStudent"><a routerLink="/seller/advertise/my-adds">Home</a></li>
+              <li  *ngIf="userDetails?.isStudent && username"><a routerLink="/home">Home</a></li>
+              <li  *ngIf="!userDetails?.isStudent && username"><a routerLink="/seller/advertise/my-adds">Home</a></li>
                <li><a routerLink="/about-us">About Us</a></li>
                <!-- <li><a routerLink="/auth/seller-registeration">Seller </a></li> -->
                <li><a routerLink="/support">Support</a></li>
-               <li  *ngIf="userDetails?.isStudent"><a routerLink="/home/select-university">Select University</a></li>
-               <li  *ngIf="!userDetails?.isStudent"><a routerLink="/seller/advertise/post-add">Post Ad</a></li>
-               <li  *ngIf="!userDetails?.isStudent"><a routerLink="/seller/advertise/my-adds" >My Ads</a></li>
-               <li class="submenu" *ngIf="userDetails?.isStudent">
+               <li  *ngIf="userDetails?.isStudent && username "><a routerLink="/home/select-university">Select University</a></li>
+               <li  *ngIf="!userDetails?.isStudent && username "><a routerLink="/seller/advertise/post-add">Post Ad</a></li>
+               <li  *ngIf="!userDetails?.isStudent && username "><a routerLink="/seller/advertise/my-adds" >My Ads</a></li>
+               <li class="submenu" *ngIf="userDetails?.isStudent && username ">
                 <a>Carpooling</a>
                  <ul class="nav-dropdown">
                    <li routerLink="/trips/listing" ><a href="javascript:void(0);">Ride Share lists</a></li>
                     <li routerLink="/trips/post-trip" ><a href="javascript:void(0);">Post Trip</a></li>
                  </ul>
                </li>
-               <li class="submenu" *ngIf="userDetails?.isStudent">
+               <li class="submenu" *ngIf="userDetails?.isStudent && username ">
                 <a>Party Carpooling</a>
                  <ul class="nav-dropdown">
                    <li routerLink="/trips/party-car-pool-list" ><a href="javascript:void(0);">Carpool lists</a></li>
                     <li routerLink="/trips/post-party-car-pool" ><a href="javascript:void(0);">Post Party Carpool</a></li>
                  </ul>
                </li>
-               <li><a routerLink="/chating/chat" >Chat</a></li>
+               <li *ngIf="username " ><a routerLink="/chating/chat" >Chat</a></li>
             </ul>
           </div>
           <div class="login-registermenu">
